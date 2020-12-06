@@ -1,10 +1,10 @@
-// Create a very simple class
-// class User {
-//     constructor(username, password){
-//         this.username = username;
-//         this.password = password;
-//     }
-// };
+//Create a very simple class
+class User {
+    constructor(username, password){
+        this.username = username;
+        this.password = password;
+    }
+};
 
 
 // ----------- localstorage for login page-------------
@@ -34,7 +34,7 @@ form.addEventListener('submit', function(e){
 
 // Sætter "item, til at være værdien af input fra useren og bruger dem senere"
 loginBtn.addEventListener('click', function(){
-//     let newUser = new User(username, password);
+//     let newUser = new Users(username, password);
 //    uploadUser(newUser);
   
     localStorage.setItem('brugernavn', usernameInput.value);
@@ -54,13 +54,13 @@ logoutBtn.addEventListener('click', function(){
 function nameDisplayCheck(){
     if(localStorage.getItem('brugernavn')){
         let username = localStorage.getItem('brugernavn');
-        let code = localStorage.getItem('kodeord');
+        let password = localStorage.getItem('kodeord');
         h1.textContent = "Velkommen "+ username;
         personalGreeting.textContent = "Velkommen til vores hjemmeside du er nu logget in";
         logoutDiv.style.display = 'block';
         loginDiv.style.display = 'none';
 
-        const users = {username, code};
+        const users = new User(username, password);
 
         const option = {
             method: 'POST',
@@ -68,8 +68,9 @@ function nameDisplayCheck(){
                 'Content-Type': 'application/json'
         }, 
         body: JSON.stringify(users),
-        };    
         
+        };    
+        // console.log(users);
         fetch('http://localhost:4123', option)
         
         //hvis ikke den eksistere

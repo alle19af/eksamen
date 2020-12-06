@@ -8,19 +8,22 @@ const storage = fs.readFileSync('user.json')
 var userObject = JSON.parse(storage);
 console.log(userObject)
 
+// console.log(getInput)
+// console.log(controller.getInput())
 
 class Users {
     constructor(username, password){
-        this.username;
-        this.password;
-        this.toJSON = "{" + 
-        "\"username\":\"" + this.username + "\", " +
-        "\"password\":\"" + this.password + "\", " +
-        "}"
+        this.username = username;
+        this.password = password;
+        // this.toJSON = "{" + 
+        // "\"username\":\"" + this.username + "\", " +
+        // "\"password\":\"" + this.password + "\", " +
+        // "}"
     }
 }
+// const newAccount = new Users;
 
-module.exports = Users;
+// module.exports = newAccount;
 // console.log(controller.getInput);
 
 // function getUsers( user){

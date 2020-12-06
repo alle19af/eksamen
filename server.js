@@ -35,7 +35,7 @@ server.get('/', controller.getlogin);
 // post fordi vi ønsker at sende data til server
 server.post('/', cors(), controller.getInput);
 
-fetch('http://localhost:4123/')
+
 
 server.listen(PORT, ()=>{
   
